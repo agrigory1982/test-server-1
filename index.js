@@ -3,10 +3,22 @@
 const express = require('express');
 const app = express();
 
-app.get('/hello', function (req, res) {
-    res.send('Hello World');
+const weatherService = require('./services/weather.service');
+
+app.get('/weather', function (req, res) {
+    const city = req.query.city;
+
+    weatherService.getWeatherReport(city)
+        .then(function (result) {
+            console.log(result);
+            res.status(200).send(result);
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.status(500).send(err);
+        });
 });
 
-app.listen(3001, function() {
+app.listen(3001, function () {
     console.log('Server is listening on port 3001');
 });
