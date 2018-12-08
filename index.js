@@ -15,7 +15,11 @@ app.get('/weather', function (req, res) {
         })
         .catch(function (err) {
             console.log(err);
-            res.status(500).send(err);
+            if (err.statusCode){
+                res.status(err.statusCode).send(err.message);
+            } else {
+                res.status(500).send(err);
+            }
         });
 });
 
