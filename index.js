@@ -21,7 +21,7 @@ app.get('/weather', function (req, res) {
     // с параметром city, в данном случае в переменной city лежит Toronto
     weatherService.getWeatherReport(city)
         .then(function (result) {
-            // Выводим в консоль (логируем) "result"
+            // Выводим в консоль (логгируем) "result"
             console.log(result);
 
             // Берем res, ставим статус "200", посылаем "result"
