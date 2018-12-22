@@ -3,7 +3,7 @@
 const express = require('express');
 const app = express();
 
-const weatherService = require('./services/weather.service.js');
+const weatherService = require('./services/weather.service');
 
 app.get('/weather', function (req, res) {
     // req: {
@@ -46,6 +46,7 @@ app.get('/weather', function (req, res) {
         });
 });
 
-app.listen(3001, function () {
-    console.log('Server is listening on port 3001');
+const port = 3001;
+app.listen(port, function () {
+    console.log(`Server is listening on port ${port}`);
 });
