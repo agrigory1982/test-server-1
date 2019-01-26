@@ -1,11 +1,11 @@
 'use strict';
 
 const express = require('express');
-const app = express();
+const server = express();
 
 const weatherService = require('./services/weather.service');
 
-app.get('/weather', function (req, res) {
+server.get('/weather', function (req, res) {
     // req: {
     //    query: {
     //       city: 'Toronto',
@@ -47,6 +47,6 @@ app.get('/weather', function (req, res) {
 });
 
 const port = 3001;
-app.listen(port, function () {
+server.listen(port, function () {
     console.log(`Server is listening on port ${port}`);
 });
